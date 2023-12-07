@@ -10,10 +10,18 @@ export 'src/dart_delayed_list_processing_base.dart';
 Future<List<int>> processListAsync(List<int> list) async {
   List<int> newList = [];
   for (var indev in list) {
-    newList.add(indev + indev);
+    Future.delayed(Duration(seconds: 1), () {
+      newList.add(indev + indev);
+    });
   }
   return newList;
+  // List<int> newList = [];
+  // for (var indev in list) {
+  //   newList.add(indev + indev);
+  // }
+  // return newList;
 }
+
 
 
 /*
